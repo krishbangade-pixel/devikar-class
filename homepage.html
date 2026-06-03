@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Devikar Classes | Shape Your Future</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#989fa6",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ccdbf4",
+                        "on-secondary-container": "#744600",
+                        "on-secondary-fixed-variant": "#673d00",
+                        "secondary-fixed": "#ffddba",
+                        "secondary-container": "#ffb55c",
+                        "primary-fixed-dim": "#adc7f7",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#86a0cd",
+                        "outline": "#74777f",
+                        "surface-variant": "#d4e4fc",
+                        "tertiary-fixed-dim": "#c1c7cf",
+                        "outline-variant": "#c4c6cf",
+                        "surface-tint": "#455f88",
+                        "on-tertiary-fixed-variant": "#41474e",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#dce9ff",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#ffb866",
+                        "primary-container": "#1a365d",
+                        "surface": "#f8f9ff",
+                        "tertiary-container": "#30363c",
+                        "inverse-primary": "#adc7f7",
+                        "on-surface": "#0d1c2e",
+                        "error-container": "#ffdad6",
+                        "primary": "#002045",
+                        "on-background": "#0d1c2e",
+                        "on-surface-variant": "#43474e",
+                        "inverse-surface": "#223144",
+                        "on-secondary-fixed": "#2b1700",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container-highest": "#d4e4fc",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#001b3c",
+                        "background": "#f8f9ff",
+                        "secondary": "#875200",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#161c22",
+                        "tertiary": "#1b2127"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(26, 54, 93, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(26, 54, 93, 0.12);
+            border-color: #ffb55c;
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #e5eeff 0%, #f8f9ff 100%);
+        }
+        /* Entrance Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero Motion */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        /* Button Shimmer Effect */
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.13) 40%,
+                rgba(255, 255, 255, 0.13) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(45deg);
+            transition: transform 0.8s;
+        }
+        .shimmer-btn:hover::after {
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-150%) rotate(45deg); }
+            100% { transform: translateX(150%) rotate(45deg); }
+        }
+
+        /* WhatsApp Pulse */
+        @keyframes pulse-gentle {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .whatsapp-pulse {
+            animation: pulse-gentle 2s infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                transition: none;
+                opacity: 1;
+                transform: none;
+            }
+            .glass-card:hover {
+                transform: none;
+            }
+            .whatsapp-pulse, .animate-float {
+                animation: none;
+            }
+            .scroll-smooth {
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300">
+<nav class="max-w-container-max mx-auto px-md py-base flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<img alt="Devikar Classes Logo" class="h-12 w-auto" src="data:image/png;base64,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"/>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<a class="text-secondary font-bold border-b-2 border-secondary pb-1 font-label-md text-label-md transition-all" href="#home">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#courses">Courses</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#contact">Contact</a>
+</div>
+<div class="flex items-center gap-sm">
+<a class="shimmer-btn bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md transition-all" href="#admission">Enroll Now</a>
+<button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="pt-xl pb-lg hero-gradient overflow-hidden" id="home">
+<div class="max-w-container-max mx-auto px-md grid md:grid-cols-2 gap-lg items-center mt-xl">
+<div class="reveal">
+<h1 class="font-display-lg text-display-lg text-primary mb-md">Shape Your Future with Devikar Classes</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">Quality coaching for Classes 8th to 12th. Empowering students with conceptual clarity and competitive edge in Ramtek.</p>
+<div class="flex flex-wrap gap-md">
+<a class="shimmer-btn bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md hover:shadow-lg transition-all" href="#admission">Admission Enquiry</a>
+<a class="border-2 border-secondary text-secondary px-lg py-sm rounded-lg font-label-md text-label-md hover:bg-secondary-container/10 transition-all" href="#contact">Contact Us</a>
+</div>
+</div>
+<div class="relative reveal delay-200">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+<img alt="Classroom Environment" class="animate-float rounded-xl shadow-2xl relative z-10 w-full object-cover aspect-video md:aspect-square" src="https://lh3.googleusercontent.com/aida/ADBb0uiUOXpPIxxHHp0Z75VjVvMxvb4EmIqyee541kiEnD0mwyo73SaBiJrz0-l7Dd3q1TTV7jug8y_EnRixoyWEpMDHq58k8iCH1wMAaM_9RA3gfGLnXEYrBtykoljmW2HPAj9FYrOmGovMeXhpGfjzHaqdmzHhivBNxteOcjMaFU4RDACrs4SsJQlVpqjlC-ldDCxyl05eeNEnROwDnDg0uytaWs92jEM4baQ5_gVQZCaVYG1TZlWdWJs7qGw"/>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-xl bg-white" id="about">
+<div class="max-w-container-max mx-auto px-md">
+<div class="grid md:grid-cols-2 gap-lg items-center">
+<div class="reveal">
+<span class="text-secondary font-label-md uppercase tracking-widest">Since 2014</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mt-sm mb-md">Excellence in Focused Learning</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Devikar Classes has been the cornerstone of academic success in Ramtek for over a decade. We believe in nurturing talent through personalized attention and rigorous academic standards.</p>
+<div class="grid grid-cols-3 gap-md mt-lg">
+<div class="text-center p-md bg-surface-container rounded-lg counter-item" data-target="500">
+<h3 class="font-headline-md text-headline-md text-primary"><span class="counter">0</span>+</h3>
+<p class="font-label-md text-label-md opacity-70">Students</p>
+</div>
+<div class="text-center p-md bg-surface-container rounded-lg counter-item" data-target="95">
+<h3 class="font-headline-md text-headline-md text-primary"><span class="counter">0</span>%</h3>
+<p class="font-label-md text-label-md opacity-70">Success Rate</p>
+</div>
+<div class="text-center p-md bg-surface-container rounded-lg counter-item" data-target="10">
+<h3 class="font-headline-md text-headline-md text-primary"><span class="counter">0</span>+</h3>
+<p class="font-label-md text-label-md opacity-70">Years Exp.</p>
+</div>
+</div>
+</div>
+<div class="bg-primary p-lg rounded-xl text-on-primary reveal delay-300">
+<h4 class="font-headline-md text-headline-md mb-md">Our Mission</h4>
+<p class="font-body-md mb-md">To bridge the gap between classroom learning and real-world application, ensuring every student reaches their maximum potential.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary-fixed">check_circle</span> Concept Based Learning</li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary-fixed">check_circle</span> Competitive Exam Prep</li>
+<li class="flex items-center gap-sm"><span class="material-symbols-outlined text-secondary-fixed">check_circle</span> Moral &amp; Ethics Development</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Courses Section -->
+<section class="py-xl bg-surface-container-low" id="courses">
+<div class="max-w-container-max mx-auto px-md">
+<div class="text-center mb-xl reveal">
+<h2 class="font-headline-lg text-headline-lg text-primary">Our Academic Programs</h2>
+<p class="font-body-md text-on-surface-variant mt-sm">Tailored curriculum designed for modern educational requirements</p>
+</div>
+<div class="grid md:grid-cols-3 lg:grid-cols-5 gap-md">
+<!-- Card 1 -->
+<div class="glass-card p-md rounded-xl border-t-4 border-primary reveal">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Class 8th</h3>
+<p class="text-xs font-label-md text-secondary mb-md">Foundation Level</p>
+<ul class="space-y-xs font-body-md text-sm text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">school</span> Maths &amp; Science</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">assignment</span> Regular Tests</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">forum</span> Doubt Sessions</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">book</span> Comprehensive Notes</li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-md rounded-xl border-t-4 border-secondary reveal delay-100">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Class 9th</h3>
+<p class="text-xs font-label-md text-secondary mb-md">Building Basics</p>
+<ul class="space-y-xs font-body-md text-sm text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">school</span> Core Subjects</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">assignment</span> Weekly Progress</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">forum</span> 1-on-1 Doubts</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">book</span> Assignments</li>
+</ul>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-md rounded-xl border-t-4 border-primary reveal delay-200">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Class 10th</h3>
+<p class="text-xs font-label-md text-secondary mb-md">Board Excellence</p>
+<ul class="space-y-xs font-body-md text-sm text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">school</span> All Key Subjects</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">assignment</span> Board Pattern Tests</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">forum</span> Expert Guidance</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">book</span> Solved Papers</li>
+</ul>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-md rounded-xl border-t-4 border-secondary reveal delay-300">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">11th Sci.</h3>
+<p class="text-xs font-label-md text-secondary mb-md">Science Stream</p>
+<ul class="space-y-xs font-body-md text-sm text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">science</span> PCMB Focus</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">assignment</span> Unit Wise Tests</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">forum</span> NEET/JEE Intro</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">book</span> Physics Lab Support</li>
+</ul>
+</div>
+<!-- Card 5 -->
+<div class="glass-card p-md rounded-xl border-t-4 border-primary reveal delay-400">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">12th Sci.</h3>
+<p class="text-xs font-label-md text-secondary mb-md">Career Launch</p>
+<ul class="space-y-xs font-body-md text-sm text-on-surface-variant">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">science</span> Intense Preparation</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">assignment</span> Full Length Tests</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">forum</span> Career Coaching</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined scale-75">book</span> Revision Module</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-xl bg-white">
+<div class="max-w-container-max mx-auto px-md">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-xl reveal">Why Devikar Classes?</h2>
+<div class="grid md:grid-cols-3 gap-md">
+<div class="flex items-start gap-md p-md hover:bg-surface-container transition-all duration-300 rounded-lg reveal border border-transparent hover:border-secondary/20">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full"><span class="material-symbols-outlined">supervisor_account</span></div>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs">Experienced Faculty</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Learn from subject matter experts with decades of teaching experience.</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-surface-container transition-all duration-300 rounded-lg reveal delay-100 border border-transparent hover:border-secondary/20">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full"><span class="material-symbols-outlined">quiz</span></div>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs">Weekly Tests</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Continuous evaluation through structured weekly performance assessments.</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-surface-container transition-all duration-300 rounded-lg reveal delay-200 border border-transparent hover:border-secondary/20">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full"><span class="material-symbols-outlined">person_search</span></div>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs">Personal Attention</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Small batch sizes ensure every student gets the attention they deserve.</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-surface-container transition-all duration-300 rounded-lg reveal delay-300 border border-transparent hover:border-secondary/20">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full"><span class="material-symbols-outlined">card_membership</span></div>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs">Scholarship Guidance</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Preparation help for NTSE, MTSE, and other competitive scholarships.</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-surface-container transition-all duration-300 rounded-lg reveal delay-400 border border-transparent hover:border-secondary/20">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full"><span class="material-symbols-outlined">psychology</span></div>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs">Career Counselling</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Expert advice to help students choose the right career path after school.</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-md hover:bg-surface-container transition-all duration-300 rounded-lg reveal delay-500 border border-transparent hover:border-secondary/20">
+<div class="bg-secondary-container text-on-secondary-container p-sm rounded-full"><span class="material-symbols-outlined">payments</span></div>
+<div>
+<h4 class="font-headline-md text-headline-md text-sm mb-xs">Affordable Fees</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Quality education made accessible with competitive and fair pricing.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Admission Enquiry Form -->
+<section class="py-xl bg-primary text-on-primary" id="admission">
+<div class="max-w-container-max mx-auto px-md">
+<div class="grid md:grid-cols-2 gap-lg items-start">
+<div class="reveal">
+<h2 class="font-display-lg text-headline-lg mb-md">Ready to start your journey?</h2>
+<p class="font-body-lg mb-lg opacity-80">Fill out the form and our admissions team will get back to you within 24 hours.</p>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary-fixed">phone_iphone</span>
+<div>
+<p class="font-label-md">Call for Quick Enquiry</p>
+<p class="font-headline-md text-secondary-fixed">+91 98765 43210</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-secondary-fixed">mail</span>
+<div>
+<p class="font-label-md">Email Us</p>
+<p class="font-headline-md text-secondary-fixed">admissions@devikarclasses.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white p-lg rounded-xl shadow-2xl reveal delay-300 overflow-hidden relative min-h-[400px] flex items-center">
+<form class="space-y-md w-full transition-all duration-500" id="enquiryForm">
+<div class="grid md:grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-primary mb-xs">Student Name</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-primary mb-xs">Parent Name</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" required="" type="text"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-primary mb-xs">Class</label>
+<select class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>8th</option>
+<option>9th</option>
+<option>10th</option>
+<option>11th Science</option>
+<option>12th Science</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-primary mb-xs">Phone</label>
+<input class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" required="" type="tel"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-primary mb-xs">Message</label>
+<textarea class="w-full bg-surface-container-low border-outline-variant rounded-lg p-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" rows="3"></textarea>
+</div>
+<button class="shimmer-btn w-full bg-secondary text-on-primary font-label-md py-md rounded-lg hover:shadow-lg transition-all active:scale-95" type="submit">Send Enquiry</button>
+</form>
+<div class="hidden absolute inset-0 flex flex-col items-center justify-center p-lg text-center bg-white z-10 animate-fade-in" id="successMsg">
+<span class="material-symbols-outlined text-secondary text-6xl mb-md">check_circle</span>
+<h3 class="font-headline-md text-primary mb-sm">Thank you for contacting Devikar Classes.</h3>
+<p class="font-body-md text-on-surface-variant">We will reach out soon.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-xl bg-surface-container">
+<div class="max-w-container-max mx-auto px-md">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-xl reveal">Words from our Students &amp; Parents</h2>
+<div class="grid md:grid-cols-3 gap-lg">
+<div class="glass-card p-lg rounded-xl reveal">
+<div class="flex text-secondary mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-md italic">"The personal attention my son received at Devikar Classes helped him improve his math score from 60 to 95 in just one year. Highly recommended!"</p>
+<div class="font-label-md text-primary">- Rajesh Sharma (Parent)</div>
+</div>
+<div class="glass-card p-lg rounded-xl reveal delay-200">
+<div class="flex text-secondary mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-md italic">"The teachers here make Science so easy to understand. The notes are perfect for revision before exams. I cleared my 10th with flying colors."</p>
+<div class="font-label-md text-primary">- Sneha Patil (Class 10th)</div>
+</div>
+<div class="glass-card p-lg rounded-xl reveal delay-400">
+<div class="flex text-secondary mb-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-md italic">"Best coaching in Ramtek. The weekly tests are very similar to actual board exams which removed my fear of finals completely."</p>
+<div class="font-label-md text-primary">- Rohan Deshmukh (Class 12th)</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="py-lg bg-secondary text-on-primary">
+<div class="max-w-container-max mx-auto px-md flex flex-col md:flex-row justify-between items-center gap-md text-center md:text-left">
+<div class="reveal">
+<h2 class="font-headline-lg text-headline-lg">Enroll Today for a Brighter Tomorrow</h2>
+<p class="font-body-md opacity-90">Batches for new session starting soon. Register now to avail early bird discounts.</p>
+</div>
+<a class="shimmer-btn bg-primary text-on-primary px-xl py-md rounded-full font-label-md text-label-md hover:scale-105 transition-all shadow-lg reveal" href="#admission">Get Started</a>
+</div>
+</section>
+<!-- Contact & Map -->
+<section class="py-xl bg-white" id="contact">
+<div class="max-w-container-max mx-auto px-md">
+<div class="grid md:grid-cols-3 gap-lg">
+<div class="reveal">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Our Location</h3>
+<div class="space-y-md text-on-surface-variant font-body-md">
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<p>Devikar Bhavan, Near Main Road, Ramtek, Maharashtra 441106</p>
+</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-secondary">call</span>
+<p>+91 91234 56789<br/>+91 98765 43210</p>
+</div>
+<div class="flex gap-sm">
+<span class="material-symbols-outlined text-secondary">schedule</span>
+<p>Mon - Sat: 3:00 PM - 8:30 PM<br/>Sun: 8:00 AM - 12:00 PM</p>
+</div>
+</div>
+<div class="mt-lg">
+<a class="flex items-center justify-center gap-sm bg-green-500 text-white px-md py-sm rounded-lg hover:bg-green-600 transition-colors w-full" href="https://wa.me/919123456789" target="_blank">
+<span class="material-symbols-outlined">chat</span> Chat on WhatsApp
+                        </a>
+</div>
+</div>
+<div class="md:col-span-2 reveal delay-300">
+<div class="w-full h-[400px] bg-surface-container rounded-xl flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Map Location" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwjAU9SRPI_-4ib5H8bRrSoJRYKW85qjkroeJvQ7pJ1BTAlo7jvjmHxaBLWkC0MII_8_Ndiv9vYNLz97b6bWKJZ4NncGzvMQgWklhDicvu6qjFwOKbxW1Us-LLhABEoL-CzyFe8ehV4znfYoquoi9jRO18aFiH1slDStE-q26_8oeG7F-VM9L0ooATKKJAZl6m2bovIYL0p6J2mGtEqGEYSSUbZaXzaa3Tdg1fO55EyaassACzjYSXRWsDH8l4Hm7d54uQ2eeSuQeh"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-tertiary text-on-tertiary pt-xl pb-lg">
+<div class="max-w-container-max mx-auto px-md">
+<div class="grid md:grid-cols-4 gap-lg border-b border-white/10 pb-xl mb-md">
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md font-black text-on-tertiary mb-md">DEVIKAR CLASSES</div>
+<p class="max-w-xs opacity-70">Empowering the next generation of scholars with dedicated coaching and modern pedagogy in the heart of Ramtek.</p>
+</div>
+<div>
+<h5 class="font-label-md mb-md">Quick Links</h5>
+<ul class="space-y-sm opacity-70">
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-secondary-fixed transition-colors" href="#">Career</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md mb-md">Connect</h5>
+<div class="flex gap-md">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container/20 transition-all" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container/20 transition-all" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary-container/20 transition-all" href="#"><span class="material-symbols-outlined">video_library</span></a>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-md text-center md:text-left opacity-50 text-sm">
+<p>© 2024 Devikar Classes Ramtek. All rights reserved.</p>
+<div class="flex gap-md">
+<p>Powered by Scholastic Digital</p>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+<a class="fixed bottom-6 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl whatsapp-pulse hover:scale-110 active:scale-95 transition-all duration-300" href="https://wa.me/919123456789">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+<script>
+        // Smooth Anchor Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Reveal Animations
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Counter Animation
+        const counterOptions = {
+            threshold: 0.8
+        };
+
+        const animateCounter = (element) => {
+            const target = parseInt(element.closest('.counter-item').getAttribute('data-target'));
+            const duration = 2000;
+            const startTime = performance.now();
+            
+            const update = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeValue = progress * (2 - progress);
+                const currentCount = Math.floor(easeValue * target);
+                element.innerText = currentCount;
+                if (progress < 1) requestAnimationFrame(update);
+                else element.innerText = target;
+            };
+            requestAnimationFrame(update);
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counterSpan = entry.target.querySelector('.counter');
+                    if (counterSpan && !counterSpan.classList.contains('counted')) {
+                        animateCounter(counterSpan);
+                        counterSpan.classList.add('counted');
+                    }
+                }
+            });
+        }, counterOptions);
+
+        document.querySelectorAll('.counter-item').forEach(item => counterObserver.observe(item));
+
+        // Form Logic with Success State
+        const enquiryForm = document.getElementById('enquiryForm');
+        const successMsg = document.getElementById('successMsg');
+
+        enquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-xl">refresh</span> Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                enquiryForm.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+                setTimeout(() => {
+                    enquiryForm.classList.add('hidden');
+                    successMsg.classList.remove('hidden');
+                    successMsg.classList.add('flex');
+                }, 400);
+            }, 1200);
+        });
+
+        // Sticky Nav Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-white/95', 'py-1', 'shadow-md');
+                header.querySelector('nav').classList.remove('py-base');
+                header.querySelector('nav').classList.add('py-sm');
+            } else {
+                header.classList.remove('bg-white/95', 'py-1', 'shadow-md');
+                header.querySelector('nav').classList.add('py-base');
+                header.querySelector('nav').classList.remove('py-sm');
+            }
+        });
+    </script>
+</body></html>
