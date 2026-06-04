@@ -25,7 +25,7 @@ const Admission = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-display" style={{ marginBottom: '24px', fontSize: '2.5rem' }}>Ready to start your journey?</h2>
+            <h2 className="font-display title-text" style={{ marginBottom: '24px', fontSize: '2.5rem' }}>Ready to start your journey?</h2>
             <p className="font-body-lg" style={{ marginBottom: '48px', opacity: 0.8 }}>
               Fill out the form and our admissions team will get back to you within 24 hours.
             </p>
@@ -40,9 +40,9 @@ const Admission = () => {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
                 <span className="material-symbols-outlined" style={{ color: 'var(--secondary-fixed)', fontSize: '32px' }}>mail</span>
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <p className="font-label">Email Us</p>
-                  <p className="font-headline-md" style={{ color: 'var(--secondary-fixed)' }}>admissions@devikarclasses.com</p>
+                  <p className="font-headline-md email-text" style={{ color: 'var(--secondary-fixed)' }}>admissions@devikarclasses.com</p>
                 </div>
               </div>
             </div>
@@ -53,6 +53,7 @@ const Admission = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="form-card"
             style={{ 
               backgroundColor: 'white', 
               padding: '48px', 
@@ -162,6 +163,9 @@ const Admission = () => {
         @media (max-width: 768px) {
           .admission-grid { grid-template-columns: 1fr !important; }
           .form-grid { grid-template-columns: 1fr !important; }
+          .form-card { padding: 24px !important; }
+          .email-text { font-size: 1.1rem !important; word-break: break-all; }
+          .title-text { font-size: 2rem !important; }
         }
       `}</style>
     </section>
