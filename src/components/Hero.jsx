@@ -62,6 +62,7 @@ const Hero = () => {
       <style>{`
         @media (max-width: 768px) {
           #home .container { grid-template-columns: 1fr !important; }
+          #home { padding-top: 120px !important; padding-bottom: 40px !important; }
         }
       `}</style>
     </section>

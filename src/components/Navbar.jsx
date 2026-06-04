@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
@@ -22,10 +22,10 @@ const Navbar = () => {
         left: 0,
         width: '100%',
         zIndex: 50,
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.7)',
+        backgroundColor: scrolled || mobileMenuOpen ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.7)',
         backdropFilter: 'blur(12px)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
-        boxShadow: scrolled ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none',
+        boxShadow: scrolled || mobileMenuOpen ? '0 4px 6px -1px rgba(0, 0, 0, 0.1)' : 'none',
         transition: 'all 0.3s ease'
       }}
     >
@@ -56,11 +56,33 @@ const Navbar = () => {
         </div>
       </div>
 
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            style={{ overflow: 'hidden', backgroundColor: 'var(--surface)' }}
+            className="mobile-nav-menu"
+          >
+            <nav style={{ display: 'flex', flexDirection: 'column', padding: '16px 24px', gap: '16px', borderTop: '1px solid var(--outline-variant)' }}>
+              <a href="#home" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--secondary)', fontWeight: 'bold', textDecoration: 'none', padding: '8px 0' }} className="font-label">Home</a>
+              <a href="#courses" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--on-surface-variant)', textDecoration: 'none', padding: '8px 0' }} className="font-label nav-link">Courses</a>
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--on-surface-variant)', textDecoration: 'none', padding: '8px 0' }} className="font-label nav-link">About</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ color: 'var(--on-surface-variant)', textDecoration: 'none', padding: '8px 0' }} className="font-label nav-link">Contact</a>
+              <a href="#admission" onClick={() => setMobileMenuOpen(false)} className="btn btn-primary font-label" style={{ padding: '12px', textAlign: 'center', marginTop: '8px' }}>Enroll Now</a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <style>{`
         .nav-link:hover { color: var(--primary) !important; }
+        .mobile-nav-menu { display: none; }
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
           .mobile-nav-toggle { display: block !important; }
+          .mobile-nav-menu { display: block; }
         }
       `}</style>
     </header>

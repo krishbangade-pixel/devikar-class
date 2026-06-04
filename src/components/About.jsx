@@ -49,7 +49,7 @@ const About = () => {
               Devikar Classes has been the cornerstone of academic success in Ramtek for over a decade. We believe in nurturing talent through personalized attention and rigorous academic standards.
             </p>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+            <div className="metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
               <div className="bg-surface-container" style={{ padding: '24px', borderRadius: '12px', textAlign: 'center' }}>
                 <h3 className="font-headline-md text-primary"><Counter target={500} />+</h3>
                 <p className="font-label" style={{ opacity: 0.7 }}>Students</p>
@@ -98,6 +98,7 @@ const About = () => {
       <style>{`
         @media (max-width: 768px) {
           .about-grid { grid-template-columns: 1fr !important; }
+          .metrics-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
         }
       `}</style>
     </section>

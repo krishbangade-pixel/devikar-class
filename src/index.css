@@ -171,4 +171,7 @@ body {
 @media (max-width: 768px) {
   .font-display { font-size: 2.25rem; }
   .font-headline { font-size: 1.75rem; }
+  section { padding-top: 60px !important; padding-bottom: 60px !important; }
+  #home { padding-top: 120px !important; padding-bottom: 40px !important; }
+  footer { padding-top: 40px !important; }
 }
